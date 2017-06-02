@@ -2,9 +2,6 @@
   "clusterName": {
     "value": "linuxcluster123"
   },
-  "location": {
-    "value": "westus"
-  },
   "clusterNodeCount": {
     "value": 1
   },
