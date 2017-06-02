@@ -28,12 +28,6 @@
                 "description": "SSH rsa public key file as a string."
             }
         },
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "region of resources"
-            }
-        },
         "clusterVmSize": {
             "type": "string",
             "defaultValue": "Standard_A2",
@@ -67,10 +61,8 @@
         },
         "ubuntuOSVersion": {
             "type": "string",
-            "defaultValue": "14.04.2-LTS",
+            "defaultValue": "16.04.0-LTS",
             "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.2-LTS",
                 "15.04"
             ],
             "metadata": {
