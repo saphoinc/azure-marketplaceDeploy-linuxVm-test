@@ -2,8 +2,7 @@
   "handler": "Microsoft.Compute.MultiVm",
   "version": "0.0.1-preview",
   "parameters": {
-    "basics": [
-      {
+    "basics": [{
         "name": "clusterName",
         "type": "Microsoft.Common.TextBox",
         "label": "Cluster name",
@@ -13,15 +12,13 @@
           "regex": "^[a-z0-9]{3,24}$",
           "validationMessage": "Cluster names must be between 3 and 24 characters long, and can contain only numbers and lowercase letters."
         }
-      },
-      {
+      }, {
         "name": "adminUsername",
         "type": "Microsoft.Compute.UserNameTextBox",
         "label": "Username",
         "toolTip": "Admin username for the virtual machines. Same Credientials is to SSH to the box.",
         "osPlatform": "Linux"
-      },
-      {
+      }, {
         "name": "SSHCredntials",
         "type": "Microsoft.Compute.CredentialsCombo",
         "label": {
@@ -42,10 +39,8 @@
   "hideConfirmation": false
 },
 "osPlatform": "Linux"
-}
-    ],
-    "steps": [
-      {
+}],
+    "steps": [{
         "name": "SampleClusterConfig",
         "label": "Cluster settings",
         "subLabel": {
@@ -53,28 +48,24 @@
           "postValidation": "Done"
         },
         "bladeTitle": "Cluster cluster settings",
-        "elements": [
-          {
+        "elements": [{
             "name": "clusterNodeCount",
             "type": "Microsoft.Common.DropDown",
             "label": "Cluster size",
             "defaultValue": "1",
             "toolTip": "The number of virtual machines (nodes) to provision for the cluster.",
             "constraints": {
-              "allowedValues": [
-                {
+              "allowedValues": [{
                   "label": "1",
                   "value": 1
-                },
-                {
+                }, {
                   "label": "4",
                   "value": 4
                 }
 
               ]
             }
-          },
-          {
+          }, {
             "name": "clusterVmSize",
             "type": "Microsoft.Compute.SizeSelector",
             "label": "Virtual machine size",
@@ -97,14 +88,13 @@
             "imageReference": {
               "publisher": "Canonical",
               "offer": "UbuntuServer",
-              "sku": "14.04.2-LTS"
+              "sku": "16.04.0-LTS"
             },
             "count": "[steps('SampleClusterConfig').clusterNodeCount]"
           }
 
         ]
-      }
-    ],
+      }],
     "outputs": {
       "clusterName": "[basics('clusterName')]",
       "adminUsername": "[basics('adminUsername')]",
